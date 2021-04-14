@@ -1,0 +1,59 @@
+/*Serve para decidir o que mostrar, como se fosse um filtro*/
+
+/*
+OPERADORES LÓGICOS
+
+=
+>
+<
+>=
+<=
+<>
+AND
+OR
+
+*/
+
+SELECT *
+FROM Person.Person 
+WHERE LastName = 'MILLER' AND FirstName = 'ANNA'
+
+
+SELECT *
+FROM Production.Product 
+WHERE Color = 'BLUE' OR Color = 'BLACK'
+
+SELECT *
+FROM Production.Product 
+WHERE ListPrice > 1500 AND ListPrice < 5000
+
+SELECT *
+FROM Production.Product
+WHERE Color <> 'RED'
+
+
+-- DESAFIO
+/* 01 A EQUIPE DE PRODUÇÃO DE PRODUTOS PRECISA DE NOME DE TODAS AS PEÇAS QUE PESAM MAIS DE 500KG MAS NÃO MAIS QUE 700KG PARA INSPEÇÃO*/
+
+SELECT *
+FROM Production.Product
+WHERE Weight > 500 AND Weight <700
+
+/* 02 FOI PEDIDO PELO MARKETING UMA RELAÇÃO DE TODOS OS EMPREGADOS(EMPLOYEES) QUE SÃO CASADOS (SINGLE=SOLTEIRO, MARRIED=CASADO)
+E SÃO ASSALARIADOS(SALARIED)*/
+
+SELECT * FROM
+HumanResources.Employee
+WHERE MaritalStatus = 'm' and SalariedFlag = 1
+
+/* 03 UM USUÁRIO CHAMADO PETER CRABS ESTÁ DEVENDO UM PAGAMENTO, CONSIGA O EMAIL DELE PARA QUE POSSAMOS ENVIAR A COBRANÇA
+(VOCE VAI TER QUE USAR A TABELA PERSON.PERSON E DEPOIS A TABELA PERSON.EMAILADRRESS)
+*/
+
+SELECT *
+FROM Person.Person
+WHERE FirstName = 'PETER' AND LastName = 'KREBS'
+
+SELECT *
+FROM Person.EmailAddress
+WHERE BusinessEntityID = 26
