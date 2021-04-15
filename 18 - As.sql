@@ -1,0 +1,5 @@
+-- AS
+-- SERVE PARA RENOMEAR COLUNAS, SELECT, ETC
+
+SELECT TOP 10 ListPrice AS 'PREÇO'
+FROM Production.Product
