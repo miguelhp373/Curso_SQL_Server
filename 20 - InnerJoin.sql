@@ -1,0 +1,54 @@
+-- INNER JOIN
+-- JUNTAR INFORMAÇÕES DE UMA TABELA PARA OUTRA
+/*
+	EXEMPLO:
+
+	SELECT C.CLIENTEID, C.NOME, E.RUA, E.CIDADE
+	FROM CLIENTE C
+	INNER JOIN ENDERECO E ON E.ENDERECOID = C.ENDERECOID
+
+*/
+
+
+
+--BUSINESSENTITYID, FIRSTNAME, LASTNAME, EMAILADDRESS
+
+SELECT TOP 10 *
+FROM Person.Person
+
+SELECT TOP 10 *
+FROM Person.EmailAddress
+
+-- JUNTANDO AS TABELAS QUE TEM COLUNAS IGUAIS
+
+SELECT P.BusinessEntityID, P.FirstName, P.LastName
+FROM Person.Person AS P
+INNER JOIN Person.EmailAddress PE ON P.BusinessEntityID = PE.BusinessEntityID
+
+
+----------------------------------
+-- VAMOS DIZER QUE NÓS QUEREMOS OS NOMES DOS PRODUTOS E AS INFORMAÇÕES DE 
+-- SUAS SUBCATEGORIAS: LISTPRICE, NOME DO PRODUTO, NOME DA CATEGORIA
+
+SELECT * FROM Production.Product
+SELECT * FROM Production.ProductSubcategory
+
+SELECT PR.ListPrice, PR.Name, PC.Name
+FROM Production.Product AS PR
+INNER JOIN Production.ProductSubcategory PC ON PC.ProductSubcategoryID = PR.ProductSubcategoryID
+
+
+-------------------------
+-- DESAFIOS
+
+-- 1 TABLE PERSON.PHONENUMBERTYPE E A TABLE PERSON.PERSONPHONE
+-- BUSINESSENTITYID, NAME, PHONENUMBERTYPEID, PHONENUMBER
+
+SELECT PN.PhoneNumberTypeID, PN.Name, 
+PP.BusinessEntityID, PP.PhoneNumber
+FROM Person.PhoneNumberType AS PN
+INNER JOIN Person.PersonPhone PP ON PP.PhoneNumberTypeID = PN.PhoneNumberTypeID
+
+
+
+
