@@ -49,6 +49,16 @@ PP.BusinessEntityID, PP.PhoneNumber
 FROM Person.PhoneNumberType AS PN
 INNER JOIN Person.PersonPhone PP ON PP.PhoneNumberTypeID = PN.PhoneNumberTypeID
 
+-- 2 PERSON.STATEPROVINCE EA PERSON.ADDRESS
+-- ADDRESSID, CITY, STATEPROVICEID, NOME DO ESTADO
+
+SELECT TOP 10 * FROM PERSON.StateProvince
+SELECT TOP 10 * FROM PERSON.Address
+
+SELECT TOP 10 PA.AddressID, PA.City, PA.StateProvinceID, PSP.Name
+FROM Person.Address AS PA
+INNER JOIN PERSON.StateProvince AS PSP ON PSP.StateProvinceID = PA.StateProvinceID
+
 
 
 
